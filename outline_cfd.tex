@@ -1,0 +1,202 @@
+\documentclass[12pt]{article}
+\topmargin -0.75in
+\textheight 9.25in
+\textwidth 6.25in
+\oddsidemargin 0in
+\evensidemargin 0in
+\usepackage{graphicx,color,textcomp}
+\newcommand{\tabref}[1]{Table~\ref{#1}}
+\newcommand{\figref}[1]{Fig.~\ref{#1}}
+\newcommand{\redcolor}[1]{\color{red}#1\color{black}}
+\newcommand{\bluecolor}[1]{\color{blue}#1\color{black}}
+\usepackage{enumitem}
+\renewcommand{\topfraction}{1.0}
+\renewcommand{\bottomfraction}{1.0}
+\renewcommand{\textfraction}{0}
+\renewcommand{\floatpagefraction}{1.0}
+\title{Outline for CFD through Spoken Tutorials}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+\section*{Chapters in the book will be written based on this outline}
+\begin{enumerate}
+\setcounter{enumi}8
+\item \textbf{Chapter 9: Simulating Hagen Poiseuille flow - ( 10 pages)}
+\begin{enumerate}[label*=\arabic*.]
+\item What is Hagen Poiseuille flow - 0.5 Page
+\begin{enumerate}[label*=\arabic*.]
+\item Definition with diagram and expression for Pressure drop - 1.5 page 
+\end{enumerate}
+\item Dividing the pipe into blocks for blockMesh - 1 page
+\begin{enumerate}[label*=\arabic*.]
+\item Creating o-grid for the pipe 
+\end{enumerate}
+\item Creating the blocks in blockMeshDict - this will explain the how to divide the pipe into blocks - 2 page 
+\item Selecting solver for the case - setting up 0, constant and system folder - 1 page
+\item Paraview for visualization - Velocity and Pressure contours. Findind the maximum velocity at the center of the pipe - 3 page
+\item Matching the velocity with analytical results - 0.5 page
+\item Excercise - 0.5 page
+\end{enumerate}
+
+\item \textbf{Chapter 10: Downloading and Installing Salome - (5/6 Pages)}
+\begin{enumerate}[label*=\arabic*.]
+\item Introduction to Salome - 0.5 Page
+\item Installation from Salome website 
+\begin{enumerate}[label*=\arabic*.]
+\item Steps to create a account on Salome website - 2 Page
+\item Downloading Salome binaries - 1 Page
+\item Creating a folder and installing Salome - 1 Page  
+\end{enumerate}
+\item How to start Salome - 0.5 Page
+\end{enumerate}
+
+\item \textbf{Chapter 11: Creating and Meshing a curved pipe geometry in Salome for OpenFOAM - (13 - 15 pages)}
+\begin{enumerate}[label*=\arabic*.]
+\item Problem definition for flow in a curved pipe - 1 Page
+\item How to start salome for creating a geometry - Choosing the geometry module, dimensions (mm,cm,m) - 1 Page
+\item Creating a curved pepe geometry in Salome
+\begin{enumerate}[label*=\arabic*.]
+\item This will cover use of how to use 2D sketch feature for creating a circle - 1 Page
+\item Creating face for the circle - 0.5 Page
+\item Extruding the face - 0.5 Page
+\item How to extrude the remaining faces to complete the curved pipe - 2 Pages 
+\end{enumerate}
+\item How to create groups to create sets for faces for boundary names - 1 Page
+\begin{enumerate}[label*=\arabic*.]
+\item Saving the geometry in $*$.hdf format - 0.5 Page
+\end{enumerate}
+\item Using the Mesh module for Meshing the geometry - 1 Page
+\begin{enumerate}[label*=\arabic*.]
+\item Using 2D and 3D meshing algorithms - 0.5 Page
+\item Submesh utility to modify the mesh in the direction of the flow - submesh gives a better mesh control to capture the required flow physics - 1 Page
+\item Grouping the mesh - group mesh by color to identify the required boundary faces -  1 Page
+\end{enumerate}
+\item Saving the Mesh files to be used in OpenFOAM - 0.5 Page
+\end{enumerate}
+
+\item \textbf{Chapter 12 : Exporting geometry from Salome to OpenFOAM - (12 Pages)}
+\begin{enumerate}[label*=\arabic*.]
+\item Using geometry created in the previous chapter - 1 Page 
+\item Mesh module for Meshing the geometry and grouping the mesh - 2 Page
+\item Exporting the mesh file in $*$.unv format - 0.5 Page
+\item Setting up a case directory in OpenFOAM - 0.5 Page
+\begin{enumerate}[label*=\arabic*.]
+\item Choosing a solver in OpenFOAM - 0.5 Page
+\item Setting up case directory along with the mesh file - 1 Page 
+\item Command to convert mesh file into OpenFOAM format - 1 Page
+\end{enumerate}
+\item Utility to scale down the geometry according to m, cm and mm. In case the user does not define the units we can scale it down using this utility in OpenFOAM - 1 Page
+\item Setting up pressure and velocity file names according to boundary names used in creating geometry - 1 Page
+\item Visualising the geomtry in Paraview - 2 Pages 
+\end{enumerate}
+
+\item \textbf{Chapter 13 : Introduction to snappyHexMesh (8-9 Pages)}
+\begin{enumerate}[label*=\arabic*.]
+\item What is snappyHexmesh - utility for using CAD files ( stl format) directly in OpenFOAM - 0.5 Page
+\item Basic steps required for using snappyHexMesh 
+\begin{enumerate}[label*=\arabic*.]
+\item Creating a base mesh using blockMesh - 1 Page
+\item Refining the base mesh - 1 Page
+\item Removing the unused cells - 1 Page
+\item Snapping mesh to surface - 1 Page
+\item Adding mesh layers to the surface - 1 Page
+\end{enumerate}
+\item Using an example problem of Flange for snappyHexMesh - 0.5 Page
+\item Exaplaining the parameters in snappyHexMeshDict file in systems folder - it is very important since this being an automated mesh generation we need to carefully define the various parameters for mesh generation - 3 Pages
+\end{enumerate} 
+
+\item \textbf{Chapter 14 : Generating mesh using SnappyHexMesh - (15 Pages)}
+\begin{enumerate}[label*=\arabic*.]
+\item Using an example problem from the previous chpater for mesh generation , Flange  - 1 Page 
+\item Setting up a case directory - 0.5 Page
+\item How to use the stl file for flange available in the OpenFOAM tutorial directory - we need to set the path for the stl in triSurface directory of constant folder - 1 Page
+\item Setting up the blockMeshDict file for creating the base mesh - 1 Page
+\item Making changes in the snappyHexMeshDict file according to the geometry - castellated mesh, mesh layer addition, boundary layer, etc - 3/4 Pages
+\item Setting up the Presure, Velocity and Temperature files in zero folder with addition of a patch for flange - 1 Page
+\item Steps for snappyHexmesh - 1 Page 
+\begin{enumerate}[label*=\arabic*.]
+\item blockMesh - for base mesh creation - 0.5 Page
+\item surfaceFeatureExtract - extracting the surface features for the mesh - 1 page
+\item snappyHexMesh - for snapping the mesh according to the geometry. Also different flags used while using this command - 1 Page
+\end{enumerate}
+\item Using laplacianFoam for solving the case -  what is laplacianFoam and governing equations - 1 Page
+\item Post-processing using Paraview showing mesh generated using snappyHexMesh, Temperature distribution in the Flange - 2 Page  
+\item Example Problem - 0.5 Page
+\end{enumerate}
+
+
+\item \textbf{Chapter 15: Importing Mesh from Thrid Party Software in OpenFOAM - (12 Pages)}
+\begin{enumerate}[label*=\arabic*.]
+ \item Why is the need to import mesh files in OpenFOAM - 0.5 Page
+ \item Solving Flow over a square cylinder as a example problem 
+ \begin{enumerate}[label*=\arabic*.]
+ \item Geometry for flow over square cylinder - 1 Page
+ \item Mesh size used for the geometry - 1 Page
+ \item Case directory creation - 1 Page
+ \end{enumerate}
+\item Command for importing fluent mesh file in OpenFOAM - 0.5 Page
+\item How to change boundary names in constant folder - 1 Page
+\item Using appropriate boundary conditions in 0 folder - 1 Page
+\item Post-Processing in paraview - 3 Page
+\item Commands to import mesh files from other third party softwares - 1 Page
+\item Excercise Problem - 1 Page
+\end{enumerate}
+
+
+\item \textbf{Chapter 16 : Installing and Running Gmsh - ( 7 Pages)}
+\begin{enumerate}[label*=\arabic*.]
+\item Introduction to Gmsh - 0.5 Page
+\item Installation 
+\begin{enumerate}[label*=\arabic*.]
+\item Download Gmsh from website - download a tar file according to 32/64 bit OS - 1 Page
+\item Install Gmsh from Synaptic Package Manager - 1 Page
+\end{enumerate}
+\item Creating a user directory for Gmsh - 0.5 Page
+\item Running Gmsh - double click on the Gmsh executable or type Gmsh in the terminal window - 1 Page
+\item Creating a basic geometry in Gmsh - Cube 
+\begin{enumerate}[label*=\arabic*.]
+\item Points  - 0.5 Page
+\item Lines - 0.5 Page
+\item Surfaces - 0.5 Page
+\item Volume - 0.5 Page
+\end{enumerate} 
+\item Example Problem - 0.5 Page
+\end{enumerate}
+
+
+\item \textbf{Chapter 17 : Creating a Sphere in Gmsh (6 Pages)}
+\begin{enumerate}[label*=\arabic*.]
+\item Problem Definition - 1 Page
+\item Creating a Sphere in Gmsh - Define points for the sphere. Using Circular Arc feature in geometry module for creating a sphere - 1 Page
+\item Creating faces for the sphere - 1 Page
+\item Creating Volume for the Sphere - 1 Page
+\item Editing the geometry (geo) file in Gmsh to Control the mesh - 1 Page 
+\item Excercise problem - 0.5 Page
+\end{enumerate}
+
+
+\item \textbf{Chapter 18 : Unstructured Mesh Generation using Gmsh}
+\begin{enumerate}[label*=\arabic*.]
+\item Using the Sphere generated in the previous chapter for creating mesh for flow over a sphere - 1 Page
+\item Problem Definition and boundary conditions - 1 Page
+\item Creating a rectangular domain for the sphere - 1 page
+\begin{enumerate}[label*=\arabic*.]
+\item Points - 0.5 Page
+\item lines - 0.5 Page 
+\item Surface - 0.5 Page
+\item Volume - 0.5 Page
+\end{enumerate}
+\item Volume subtraction - subtract the volume of the sphere from the outer domain for meshing - 1 page
+\item Adding Physical Sufaces and Volume for creating sets for faces - 2 Page
+\item Adding boundary layer for sphere - 1 Page
+\item Meshing the geometry using 1D, 2D and 3D mesh generation - 1 Page
+\item Refining the mesh using Netgen optimization utility - 1 Page
+\item Saving the mesh file for using it in OpenFOAM - 0.5 Page
+\end{enumerate}
+\end{enumerate}
+
+\end{document}
+
+
+
