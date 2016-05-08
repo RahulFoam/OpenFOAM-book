@@ -1,0 +1,20 @@
+\section{Grouping Mesh}
+
+\begin{figure}[h]  
+\centering
+\includegraphics[scale=0.35]{\LocCHelevenfig/cg_mesh.png}
+\caption{Grouping of mesh elements}
+\label{meshgroup}
+\end{figure}
+
+In the mesh moudle we can create a group of elements of a certain type. The way to create a group is to select from top menu bar \textit{Mesh / Create Group item }. To create a group we should define the Mesh as the main object from Object Browser, in our case we select Mesh-1. Element Types refer to the type of elements which will form the group, we select Faces in our case. In the Name field enter the name of the group in this case it will be Inlet, Outlet and flow-direction. In the Group type is distinguished by three options,
+
+\begin{itemize}
+\item Standalone group : Adding all entities of the choosen type existing in the Mesh.
+\item Group On Geometry : This contains elements of a certain type generated on the Slected geometrical object. Group contents are dynamically uppdated if the mesh is modified. The group on geometry can be created only if the mesh is based on geometry.
+\item Group on Filter : This contains the elements of a certain type satisfying the defined filter.
+\end{itemize}
+ 
+\flushleft For this case we will select Group on Geometry. Click on the arrow button next to the Geometrical Object. It will show two options, Direct geometry selection and Find Geometry by mesh element selection. We select Direct Geometry selection and choose the Groups created earlier in the Geometry Module, Figure \ref{meshgroup}. Choose any color from the options available at the bottom of the dialog box, this helps to display the elements of the group. Do this procedure for other faces.  
+
+

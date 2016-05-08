@@ -1,0 +1,13 @@
+\chapter{Simulating Hagen Poiseuille flow}
+\thispagestyle{empty}
+\label{sec:chap9}
+\newcommand{\LocCHninefig}{\Origin/CHAPTERS/chap9/figures}
+
+\section{What is Hagen Poiseuille Law}
+
+In nonideal Fluid Dynamics Hagen Poiseuille flow or Poiseuille law is a law which gives presure drop in a fluid flowing through a long cylindrical pipe.This law was experimentally derived independently by Gotthilf Heinrich Ludwig Hagen in 1839 and Jean Leonard Marie Poiseuille in 1838, and published by Poiseuille in 1840 and 1846. The assumptions of the equation are that the fluid is incompressible, Newtonian the flow is laminar through a pipe of constant circular cross-section that is substantially longer than its diameter and there is no acceleration of fluid in the pipe. For velocities and pipe diameters above a threshold, actual fluid flow is not laminar but turbulent, leading to larger pressure drops than calculated by the Hagen–Poiseuille equation.
+
+\section*{Equation}
+
+\flushleft Standard governing equations for Pressure drop in the pipe is given as follows, 
+

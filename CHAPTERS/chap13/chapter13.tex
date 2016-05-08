@@ -1,0 +1,19 @@
+\chapter{Introduction to snappyHexMesh}
+\thispagestyle{empty}
+\label{sec:chap13}
+\newcommand{\LocCHonethreefig}{\Origin/CHAPTERS/chap13/figures}
+
+\section{What is snappyHexMesh}
+
+The snappyHexMesh is a utility in OpenFOAM which a generates 3-dimensional meshes containing hexahedra (hex) and split-hexahedra (split-hex) automatically from triangulated surface geometries in Stereolithography (STL) format. The mesh approximately conforms to the surface by iteratively refining a starting mesh and morphing the resulting split-hex mesh to the surface. An optional phase will shrink back the resulting mesh and insert cell layers. The specification of mesh refinement level is very flexible and the surface handling is robust with a pre-specified final mesh quality. It runs in parallel with a load balancing step every iteration.\newline
+
+\flushleft The basic requirements for generating a mesh using snappyHexMesh are as follows,
+
+\begin{itemize}
+\item STL File : The geometry stl file should be of good quality because it will be the reference surface for the snapping process. Expecially if there are curved surfaces, they will be jagged following the trace of stl file. If they are provided specific thickening to a particular surface of geometry, is recommended to define specific patch in stl file, this patch can be recognized and imported in snappyHexMeshDict file. The stl must be in constant/triSurface directory, in ASCII format
+\item blockMesh : After stl creation is necessary to create the reference hexaedra mesh with blockMesh utility. This will be the "raw piece of rock" modelled by the sculptor (snappyHexMesh in this case) following the geometry described in stl files. The dimension of these blocks is the reference dimension (corresponding to 0 levels of refinement), starting from this it is possible to calculate the minimum cell size. The block can contain the whole stl surface, or you may decide to make it smaller in order to cut the geometry, it depends also on the type of mesh, internal or external.
+The blockMeshDict file must be in constant/polyMesh directory and the blockMesh process can be started by typing blockMesh in the main folder of the case. It creates all mesh files (boundary, owner, points, ecc ecc) in constant/polyMesh directory.
+snappyHexMesh is designed to work properly on base elements with unitary aspect ratio, despite this it is possible to operate on slightly stretched cells.
+
+\end{itemize} 
+
